@@ -60,7 +60,7 @@ export interface Toast {
   height?: number;
 }
 
-export type ToastOptions = Partial<
+export type ToastOptions<C = {}> = Partial<
   Pick<
     Toast,
     | 'id'
@@ -72,7 +72,7 @@ export type ToastOptions = Partial<
     | 'position'
     | 'iconTheme'
   >
->;
+> & { customProps?: C };
 
 export type DefaultToastOptions = ToastOptions & {
   [key in ToastType]?: ToastOptions;
