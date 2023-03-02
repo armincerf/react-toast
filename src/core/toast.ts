@@ -47,6 +47,7 @@ toast.error = createHandler('error');
 toast.success = createHandler('success');
 toast.loading = createHandler('loading');
 toast.custom = createHandler('custom');
+toast.warn = createHandler('warn');
 
 toast.dismiss = (toastId?: string) => {
   dispatch({
@@ -71,23 +72,25 @@ toast.promise = <T>(
 
   promise
     .then((p) => {
-      msgs.success && toast.success(resolveValue(msgs.success, p), {
-        id,
-        ...opts,
-        ...opts?.success,
-      });
+      msgs.success &&
+        toast.success(resolveValue(msgs.success, p), {
+          id,
+          ...opts,
+          ...opts?.success,
+        });
       return p;
     })
     .catch((e) => {
-      msgs.error && toast.error(resolveValue(msgs.error, e), {
-        id,
-        ...opts,
-        ...opts?.error,
-      });
+      msgs.error &&
+        toast.error(resolveValue(msgs.error, e), {
+          id,
+          ...opts,
+          ...opts?.error,
+        });
     })
     .finally(() => {
       toast.remove(id);
-    })
+    });
 
   return promise;
 };
