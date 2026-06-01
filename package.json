@@ -1,7 +1,7 @@
 {
   "name": "@armincerf/react-toast",
   "description": "Slightly improved fork of react-hot-toast",
-  "version": "2.4.6",
+  "version": "2.4.8",
   "author": "Timo Lins",
   "license": "MIT",
   "repository": "armincerf/react-toast",
